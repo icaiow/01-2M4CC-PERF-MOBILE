@@ -1,20 +1,20 @@
-import { IonicModule } from '@ionic/angular';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Tab3Page } from './tab3.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
-import { Tab3PageRoutingModule } from './tab3-routing.module';
+import { NgModule } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { Tab3Page } from './tab3.page';
+import { PokeAPIService } from '../../app/services/poke-api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
-    FormsModule,
-    ExploreContainerComponentModule,
-    Tab3PageRoutingModule
+    RouterModule.forChild([{ path: '', component: Tab3Page }]),
+    HttpClientModule, 
   ],
-  declarations: [Tab3Page]
+  declarations: [Tab3Page],
+  providers: [PokeAPIService],
 })
 export class Tab3PageModule {}
